@@ -5,7 +5,7 @@ const config = {
     'at-rule-no-unknown': [
       true,
       {
-        ignoreAtRules: ['include', 'mixin'],
+        ignoreAtRules: ['include', 'mixin', 'forward'],
       },
     ],
     'scss/at-rule-no-unknown': true,
@@ -24,6 +24,7 @@ const config = {
         ignorePseudoElements: ['v-deep'],
       },
     ],
+    'selector-class-pattern': '^[a-z][a-zA-Z0-9]*$',
   },
 }
 
