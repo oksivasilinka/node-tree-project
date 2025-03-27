@@ -1,7 +1,7 @@
-import './App.scss'
+import { TreeNodeViewList } from '@/widgets/tree-node-view-list'
 
 function App() {
-  return <div>Hello</div>
+  return <TreeNodeViewList />
 }
 
 export default App
