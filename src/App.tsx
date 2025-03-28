@@ -1,4 +1,4 @@
-import { TreeNodeViewList } from '@/widgets/tree-node-view-list'
+import { TreeNodeViewList } from '@/views/tree-node-view-list'
 
 function App() {
   return <TreeNodeViewList />

@@ -1,18 +1,15 @@
-import { useEffect } from 'react'
-import { useGetUserTreeMutation } from '@/shared/api/user-tree-api'
 import { TreeNodeList } from './ui'
 import { TreeNodeItem } from '@/entties/tree-node-item'
 import { ConditionalRender } from '@/shared/ui'
+import { useGetUserTreeQuery } from '@/shared/api/user-tree-api'
 
 export const TreeNodeViewList = () => {
-  const [getTree, { data: treeNode, isLoading }] = useGetUserTreeMutation()
-
-  useEffect(() => {
-    getTree({ treeName: import.meta.env.VITE_ROOT_FOLDER })
-  }, [getTree])
+  const { data: treeNode, isFetching } = useGetUserTreeQuery({
+    treeName: import.meta.env.VITE_ROOT_FOLDER,
+  })
 
   return (
-    <ConditionalRender condition={treeNode && !isLoading}>
+    <ConditionalRender condition={treeNode?.id && !isFetching}>
       <TreeNodeItem
         key={treeNode?.id}
         node={treeNode}
