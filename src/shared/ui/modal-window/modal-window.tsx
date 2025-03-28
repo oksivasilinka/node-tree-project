@@ -4,7 +4,7 @@ import * as Dialog from '@radix-ui/react-dialog'
 
 import s from './modal-window.module.scss'
 
-type ModalWindowProps = {
+export type ModalWindowProps = {
   children: ReactNode
   onOpenChange?: (open: boolean) => void
   open?: boolean

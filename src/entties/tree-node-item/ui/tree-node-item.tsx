@@ -5,6 +5,7 @@ import s from './tree-node-item.module.scss'
 import { CreateTreeNodeModal } from '@/widgets/create-tree-node-modal'
 import { TreeNodeList } from '@/views/tree-node-view-list/ui'
 import { RenameTreeNodeModal } from '@/widgets/rename-tree-node-modal'
+import { DeleteTreeNodeModal } from '@/widgets/delete-tree-node-modal'
 
 type TreeNodeItemProps = {
   node?: TreeNode
@@ -36,6 +37,7 @@ export const TreeNodeItem = ({ node, onClick, openIds }: TreeNodeItemProps) => {
         <ClickPrevented>
           <CreateTreeNodeModal id={node?.id} />
           <RenameTreeNodeModal id={node?.id} />
+          <DeleteTreeNodeModal node={node} />
         </ClickPrevented>
       </button>
       <ConditionalRender condition={isOpenFolder}>

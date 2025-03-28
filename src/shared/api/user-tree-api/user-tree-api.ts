@@ -36,9 +36,9 @@ export const userTreeApi = baseApi.injectEndpoints({
         invalidatesTags: [PROVIDED_TAGS.tree],
       }),
       deleteUserTreeNode: builder.mutation<DeleteUserTreeNodeResponse, DeleteUserTreeNodePayload>({
-        query: () => ({
+        query: ({ nodeId, treeName }) => ({
           method: 'POST',
-          url: `/api.user.tree.node.delete`, //TODO add payload
+          url: `/api.user.tree.node.delete?treeName=${treeName}&nodeId=${nodeId}`,
         }),
         invalidatesTags: [PROVIDED_TAGS.tree],
       }),
