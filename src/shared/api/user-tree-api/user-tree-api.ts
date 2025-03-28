@@ -29,9 +29,9 @@ export const userTreeApi = baseApi.injectEndpoints({
         invalidatesTags: [PROVIDED_TAGS.tree],
       }),
       renameUserTreeNode: builder.mutation<RenameUserTreeNodeResponse, RenameUserTreeNodePayload>({
-        query: () => ({
+        query: ({ nodeId, newNodeName, treeName }) => ({
           method: 'POST',
-          url: `/api.user.tree.node.rename`, //TODO add payload
+          url: `/api.user.tree.node.rename?treeName=${treeName}&nodeId=${nodeId}&newNodeName=${newNodeName}`,
         }),
         invalidatesTags: [PROVIDED_TAGS.tree],
       }),
