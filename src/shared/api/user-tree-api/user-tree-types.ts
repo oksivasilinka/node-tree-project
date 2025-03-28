@@ -1,8 +1,4 @@
-type TreeNode = {
-  id: number
-  name: string
-  children: TreeNode
-}
+import { TreeNode } from '@/entties/tree-node-item'
 
 export type GetUserTreePayload = {
   treeName: string

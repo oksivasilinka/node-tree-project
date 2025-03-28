@@ -1,7 +1,12 @@
-import './App.scss'
+import { TreeNodeViewList } from '@/views/tree-node-view-list'
+import { StateTreeProvider } from '@/shared/providers'
 
 function App() {
-  return <div>Hello</div>
+  return (
+    <StateTreeProvider>
+      <TreeNodeViewList />
+    </StateTreeProvider>
+  )
 }
 
 export default App

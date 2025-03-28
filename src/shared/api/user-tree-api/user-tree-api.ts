@@ -1,4 +1,4 @@
-import { baseApi } from '@/shared/api'
+import { baseApi } from '../base-api.ts'
 import {
   CreateUserTreeNodePayload,
   CreateUserTreeNodeResponse,
@@ -9,44 +9,45 @@ import {
   RenameUserTreeNodePayload,
   RenameUserTreeNodeResponse,
 } from './user-tree-types.ts'
+import { PROVIDED_TAGS } from '@/shared/constants'
 
 export const userTreeApi = baseApi.injectEndpoints({
   endpoints: (builder) => {
     return {
-      getUserTree: builder.mutation<GetUserTreeResponse, GetUserTreePayload>({
-        invalidatesTags: [],
+      getUserTree: builder.query<GetUserTreeResponse, GetUserTreePayload>({
         query: ({ treeName }) => ({
           method: 'POST',
           url: `/api.user.tree.get?treeName=${treeName}`,
         }),
+        providesTags: [PROVIDED_TAGS.tree],
       }),
       createUserTreeNode: builder.mutation<CreateUserTreeNodeResponse, CreateUserTreeNodePayload>({
-        invalidatesTags: [],
-        query: () => ({
+        query: ({ treeName, parentNodeId, nodeName }) => ({
           method: 'POST',
-          url: `/api.user.tree.create`, //TODO add payload
+          url: `/api.user.tree.node.create?treeName=${treeName}&parentNodeId=${parentNodeId}&nodeName=${nodeName}`,
         }),
+        invalidatesTags: [PROVIDED_TAGS.tree],
       }),
       renameUserTreeNode: builder.mutation<RenameUserTreeNodeResponse, RenameUserTreeNodePayload>({
-        invalidatesTags: [],
-        query: () => ({
+        query: ({ nodeId, newNodeName, treeName }) => ({
           method: 'POST',
-          url: `/api.user.tree.rename`, //TODO add payload
+          url: `/api.user.tree.node.rename?treeName=${treeName}&nodeId=${nodeId}&newNodeName=${newNodeName}`,
         }),
+        invalidatesTags: [PROVIDED_TAGS.tree],
       }),
       deleteUserTreeNode: builder.mutation<DeleteUserTreeNodeResponse, DeleteUserTreeNodePayload>({
-        invalidatesTags: [],
-        query: () => ({
+        query: ({ nodeId, treeName }) => ({
           method: 'POST',
-          url: `/api.user.tree.delete`, //TODO add payload
+          url: `/api.user.tree.node.delete?treeName=${treeName}&nodeId=${nodeId}`,
         }),
+        invalidatesTags: [PROVIDED_TAGS.tree],
       }),
     }
   },
 })
 
 export const {
-  useGetUserTreeMutation,
+  useGetUserTreeQuery,
   useCreateUserTreeNodeMutation,
   useRenameUserTreeNodeMutation,
   useDeleteUserTreeNodeMutation,

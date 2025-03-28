@@ -1,0 +1,106 @@
+@mixin button {
+  all: unset;
+  cursor: pointer;
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 6px 28px;
+  font-size: var(--font-size-s);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-m);
+  text-align: center;
+  border-radius: 4px;
+  text-transform: uppercase;
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+.primary {
+  @include button;
+
+  height: 36px;
+  background-color: var(--color-accent-500);
+  box-shadow: 0 4px 18px 0 rgb(140 97 255 / 35%);
+  color: var(--color-light-100);
+
+  &:hover {
+    background-color: var(--color-accent-600);
+  }
+
+  &:focus-visible {
+    background-color: var(--color-accent-700);
+  }
+
+  &:active {
+    background-color: var(--color-accent-700);
+  }
+
+  &:disabled {
+    color: var(--color-light-900);
+    background-color: var(--color-accent-500);
+  }
+}
+
+.outlined {
+  @include button;
+
+  height: 36px;
+  box-shadow: 0 4px 4px 0 rgb(77 86 96 / 13%);
+  color: var(--color-danger-500);
+  border: 1px solid var(--color-danger-500);
+
+  &:hover {
+    color: var(--color-danger-600);
+    border: 1px solid var(--color-danger-600);
+  }
+
+  &:focus-visible {
+    color: var(--color-danger-700);
+    border: 1px solid var(--color-danger-700);
+    box-shadow: inset 0 0 0 2px var(--color-danger-500);
+  }
+
+  &:active {
+    background-color: var(--color-danger-100);
+  }
+
+  &:disabled {
+    color: var(--color-danger-100);
+    border: 1px solid var(--color-danger-100);
+  }
+}
+
+.secondary {
+  @include button;
+
+  height: 36px;
+  background-color: transparent;
+  box-shadow: 0 4px 4px 0 rgb(77 86 96 / 13%);
+  color: var(--color-accent-500);
+  border: 1px solid var(--color-accent-500);
+
+  &:hover {
+    color: var(--color-accent-600);
+    border: 1px solid var(--color-accent-600);
+  }
+
+  &:focus-visible {
+    color: var(--color-accent-700);
+    border: 1px solid var(--color-accent-700);
+    box-shadow: inset 0 0 0 2px var(--color-accent-500);
+  }
+
+  &:active {
+    color: var(--color-accent-700);
+    border: 1px solid var(--color-accent-700);
+  }
+
+  &:disabled {
+    color: var(--color-accent-100);
+    border: 1px solid var(--color-accent-100);
+  }
+}
