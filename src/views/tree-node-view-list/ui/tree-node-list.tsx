@@ -4,11 +4,11 @@ import { ConditionalRender } from '@/shared/ui'
 
 type TreeNodeListProps = {
   items?: TreeNode[] | null
-  onClick?: (node?: TreeNode) => void
-  parentId?: string | null
+  onClick?: (id: number) => void
+  openIds: number[] | null
 }
 
-export const TreeNodeList = ({ items, onClick }: TreeNodeListProps) => {
+export const TreeNodeList = ({ items, onClick, openIds }: TreeNodeListProps) => {
   return (
     <ConditionalRender condition={items}>
       <div className={s.list}>
@@ -16,6 +16,7 @@ export const TreeNodeList = ({ items, onClick }: TreeNodeListProps) => {
           return (
             <TreeNodeItem
               key={node.id}
+              openIds={openIds}
               node={node}
               onClick={onClick}
             />
