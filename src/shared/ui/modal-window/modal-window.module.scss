@@ -15,6 +15,8 @@ input {
 .header {
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid var(--color-light-500);
+  padding: 20px;
 }
 
 .title {
@@ -34,9 +36,9 @@ input {
   transform: translate(-50%, -50%);
   animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 0 4px 18px 0 rgb(140 97 255 / 35%);
-  padding: 20px;
   border-radius: 4px;
   background-color: var(--color-light-100);
+  min-width: 400px;
 
   &:focus {
     outline: none;

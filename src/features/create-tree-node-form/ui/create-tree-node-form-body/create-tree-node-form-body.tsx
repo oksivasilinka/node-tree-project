@@ -8,6 +8,8 @@ export const CreateTreeNodeFormBody = ({ form }: CreateTreeNodeFormBodyProps) =>
     <FormInput
       name={'nodeName'}
       control={form.control}
+      label={'Node Name'}
+      placeholder={'Enter node name'}
     />
   )
 }

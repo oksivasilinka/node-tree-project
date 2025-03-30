@@ -5,7 +5,7 @@ import s from './button.module.scss'
 export type ButtonProps<T extends ElementType = 'button'> = {
   as?: T
   className?: string
-  variant?: 'primary' | 'secondary' | 'outlined'
+  variant?: 'primary' | 'secondary' | 'outlined' | 'icon'
 } & ComponentPropsWithoutRef<T>
 
 export const Button = <T extends ElementType = 'button'>(

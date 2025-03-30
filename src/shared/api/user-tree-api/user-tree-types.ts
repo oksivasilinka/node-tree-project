@@ -1,4 +1,4 @@
-import { TreeNode } from '@/entties/tree-node-item'
+import { TreeNode } from '@/entties/types'
 
 export type GetUserTreePayload = {
   treeName: string
@@ -10,17 +10,17 @@ export type CreateUserTreeNodePayload = {
   parentNodeId: string
   nodeName: string
 }
-export type CreateUserTreeNodeResponse = TreeNode //TODO update types response
+export type CreateUserTreeNodeResponse = void
 
 export type RenameUserTreeNodePayload = {
   treeName: string
   nodeId: string
   newNodeName: string
 }
-export type RenameUserTreeNodeResponse = TreeNode //TODO update types response
+export type RenameUserTreeNodeResponse = void
 
 export type DeleteUserTreeNodePayload = {
   treeName: string
   nodeId: string
 }
-export type DeleteUserTreeNodeResponse = TreeNode //TODO update types response
+export type DeleteUserTreeNodeResponse = void

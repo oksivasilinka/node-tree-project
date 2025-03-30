@@ -13,7 +13,10 @@ export const RenameTreeNodeFormFooter = ({
 }: RenameTreeNodeFormFooterProps) => {
   return (
     <div className={s.footerForm}>
-      <Dialog.Close className={s.close}>
+      <Dialog.Close
+        asChild
+        className={s.close}
+      >
         <Button
           onClick={onCancel}
           variant={'outlined'}

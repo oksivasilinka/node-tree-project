@@ -1,11 +1,12 @@
-import { TreeNodeItem } from '@/entties/tree-node-item'
 import { ConditionalRender } from '@/shared/ui'
 import { useGetUserTreeQuery } from '@/shared/api/user-tree-api'
 import { useStateTreeContext } from '@/shared/providers'
+import { ROOT_FOLDER } from '@/shared/constants'
+import { TreeNodeItem } from './ui'
 
 export const TreeNodeViewList = () => {
   const { data: treeNode, isFetching } = useGetUserTreeQuery({
-    treeName: import.meta.env.VITE_ROOT_FOLDER,
+    treeName: ROOT_FOLDER,
   })
 
   const { toggleOpenId, openIds } = useStateTreeContext()
