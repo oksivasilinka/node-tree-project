@@ -20,7 +20,10 @@ export const ModalWindow = ({ children, onOpenChange, open, trigger, title }: Mo
       <Dialog.Trigger asChild>{trigger}</Dialog.Trigger>
       <Dialog.Portal>
         <Dialog.Overlay className={s.dialogOverlay} />
-        <Dialog.Content className={s.dialogContent}>
+        <Dialog.Content
+          aria-describedby={undefined}
+          className={s.dialogContent}
+        >
           <div className={s.header}>
             <Dialog.Title className={s.title}>{title}</Dialog.Title>
             <Dialog.Close className={s.close}>X</Dialog.Close>

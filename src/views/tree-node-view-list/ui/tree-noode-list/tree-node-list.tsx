@@ -1,6 +1,7 @@
-import { TreeNode, TreeNodeItem } from '@/entties/tree-node-item'
 import s from './tree-node-list.module.scss'
 import { ConditionalRender } from '@/shared/ui'
+import { TreeNode } from '@/entties/types'
+import { TreeNodeItem } from '@/views/tree-node-view-list/ui'
 
 type TreeNodeListProps = {
   items?: TreeNode[] | null

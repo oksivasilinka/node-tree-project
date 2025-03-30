@@ -1,7 +1,8 @@
 import { RenameTreeNodeFormValues } from './validation-schema.ts'
+import { ROOT_FOLDER } from '@/shared/constants'
 
 export const createDefaultValues = (nodeId?: number): RenameTreeNodeFormValues => ({
-  treeName: import.meta.env.VITE_ROOT_FOLDER,
+  treeName: ROOT_FOLDER,
   nodeId: `${nodeId}`,
   newNodeName: '',
 })

@@ -15,7 +15,10 @@ export const DeleteModalFooter = ({
 }: DeleteModalFooterProps) => {
   return (
     <div className={s.footerModal}>
-      <Dialog.Close className={s.close}>
+      <Dialog.Close
+        asChild
+        className={s.close}
+      >
         <Button variant={'outlined'}>Cancel</Button>
       </Dialog.Close>
 

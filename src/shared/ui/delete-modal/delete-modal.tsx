@@ -1,6 +1,7 @@
 import { ModalWindow, ModalWindowProps } from '@/shared/ui'
 import { DeleteModalFooter } from './ui'
 import { ReactNode } from 'react'
+import s from './delete-modal.module.scss'
 
 export type DeleteModalWindowProps = Omit<ModalWindowProps, 'children'> & {
   description: string
@@ -23,7 +24,7 @@ export const DeleteModalWindow = ({
       trigger={trigger}
       title={title}
     >
-      {description}
+      <div className={s.body}>{description}</div>
       <DeleteModalFooter
         disabled={disabled}
         onDelete={onDelete}
