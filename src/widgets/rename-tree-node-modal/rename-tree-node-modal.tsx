@@ -7,6 +7,8 @@ type RenameTreeNodeModalProps = {
 }
 
 export const RenameTreeNodeModal = ({ id }: RenameTreeNodeModalProps) => {
+  if (!id) return null
+
   return (
     <ModalWindow
       title={'Rename Tree Node'}

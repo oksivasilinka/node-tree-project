@@ -9,7 +9,7 @@ import {
   RenameUserTreeNodePayload,
   RenameUserTreeNodeResponse,
 } from './user-tree-types.ts'
-import { PROVIDED_TAGS } from '@/shared/constants'
+import { PROVIDED_TAGS, ROOT_FOLDER } from '@/shared/constants'
 
 export const userTreeApi = baseApi.injectEndpoints({
   endpoints: (builder) => {
@@ -22,23 +22,23 @@ export const userTreeApi = baseApi.injectEndpoints({
         providesTags: [PROVIDED_TAGS.tree],
       }),
       createUserTreeNode: builder.mutation<CreateUserTreeNodeResponse, CreateUserTreeNodePayload>({
-        query: ({ treeName, parentNodeId, nodeName }) => ({
+        query: ({ parentNodeId, name }) => ({
           method: 'POST',
-          url: `/api.user.tree.node.create?treeName=${treeName}&parentNodeId=${parentNodeId}&nodeName=${nodeName}`,
+          url: `/api.user.tree.node.create?treeName=${ROOT_FOLDER}&parentNodeId=${parentNodeId}&nodeName=${name}`,
         }),
         invalidatesTags: [PROVIDED_TAGS.tree],
       }),
       renameUserTreeNode: builder.mutation<RenameUserTreeNodeResponse, RenameUserTreeNodePayload>({
-        query: ({ nodeId, newNodeName, treeName }) => ({
+        query: ({ nodeId, newNodeName }) => ({
           method: 'POST',
-          url: `/api.user.tree.node.rename?treeName=${treeName}&nodeId=${nodeId}&newNodeName=${newNodeName}`,
+          url: `/api.user.tree.node.rename?treeName=${ROOT_FOLDER}&nodeId=${nodeId}&newNodeName=${newNodeName}`,
         }),
         invalidatesTags: [PROVIDED_TAGS.tree],
       }),
       deleteUserTreeNode: builder.mutation<DeleteUserTreeNodeResponse, DeleteUserTreeNodePayload>({
-        query: ({ nodeId, treeName }) => ({
+        query: ({ nodeId }) => ({
           method: 'POST',
-          url: `/api.user.tree.node.delete?treeName=${treeName}&nodeId=${nodeId}`,
+          url: `/api.user.tree.node.delete?treeName=${ROOT_FOLDER}&nodeId=${nodeId}`,
         }),
         invalidatesTags: [PROVIDED_TAGS.tree],
       }),

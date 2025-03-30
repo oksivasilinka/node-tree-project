@@ -8,7 +8,7 @@ import {
 } from '@/features/rename-tree-node-form/ui'
 
 type CreateTreeNodeFormProps = {
-  id?: number
+  id: number
 }
 
 export const RenameTreeNodeForm = ({ id }: CreateTreeNodeFormProps) => {

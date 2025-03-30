@@ -10,7 +10,7 @@ import {
 } from './validation-schema.ts'
 
 export type UseCreateTreeNodeFormProps = {
-  parentId?: number
+  parentId: number
   onClose?: () => void
 }
 
