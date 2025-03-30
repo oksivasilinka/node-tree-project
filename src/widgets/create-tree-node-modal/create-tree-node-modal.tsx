@@ -7,6 +7,7 @@ type CreateTreeNodeModalProps = {
 }
 
 export const CreateTreeNodeModal = ({ id }: CreateTreeNodeModalProps) => {
+  if (!id) return null
   return (
     <ModalWindow
       title={'Add Tree Node'}

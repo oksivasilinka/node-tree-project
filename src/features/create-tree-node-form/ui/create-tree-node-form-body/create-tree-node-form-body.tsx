@@ -6,7 +6,7 @@ type CreateTreeNodeFormBodyProps = Pick<CreateTreeNodeFormReturnType, 'form'>
 export const CreateTreeNodeFormBody = ({ form }: CreateTreeNodeFormBodyProps) => {
   return (
     <FormInput
-      name={'nodeName'}
+      name={'name'}
       control={form.control}
       label={'Node Name'}
       placeholder={'Enter node name'}

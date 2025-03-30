@@ -8,7 +8,7 @@ import {
 import s from './create-tree-node-form.module.scss'
 
 type CreateTreeNodeFormProps = {
-  id?: number
+  id: number
 }
 
 export const CreateTreeNodeForm = ({ id }: CreateTreeNodeFormProps) => {

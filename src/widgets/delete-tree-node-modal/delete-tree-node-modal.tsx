@@ -3,7 +3,6 @@ import { useDeleteUserTreeNodeMutation } from '@/shared/api/user-tree-api'
 import { TreeNode } from '@/entties/types'
 import { Trash } from '@/shared/icon'
 import s from './delete-tree-node-modal.module.scss'
-import { ROOT_FOLDER } from '@/shared/constants'
 
 type DeleteTreeNodeModalProps = {
   node?: TreeNode
@@ -13,8 +12,10 @@ type DeleteTreeNodeModalProps = {
 export const DeleteTreeNodeModal = ({ node, disabled }: DeleteTreeNodeModalProps) => {
   const [deleteBanner, { isLoading }] = useDeleteUserTreeNodeMutation()
 
+  if (!node?.id) return null
+
   const onDelete = () => {
-    deleteBanner({ nodeId: `${node?.id}`, treeName: ROOT_FOLDER })
+    deleteBanner({ nodeId: node.id })
   }
 
   return (
