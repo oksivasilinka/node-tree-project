@@ -1,5 +1,3 @@
-'use client'
-
 import { useState, type ReactNode, useMemo } from 'react'
 
 import { StateTreeContext } from '@/shared/providers'
