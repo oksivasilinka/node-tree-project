@@ -1,5 +1,3 @@
-'use client'
-
 import { createContext, use } from 'react'
 
 type StateTreeContextValues = {
@@ -10,7 +8,7 @@ type StateTreeContextValues = {
 export const StateTreeContext = createContext<StateTreeContextValues>(null)
 
 export const useStateTreeContext = () => {
-  const context = use(StateTreeContext) as StateTreeContextValues
+  const context = use(StateTreeContext)
 
   if (!context) throw new Error('State Tree Context no exist')
 

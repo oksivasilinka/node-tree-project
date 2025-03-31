@@ -8,6 +8,7 @@ import {
   CreateTreeNodeFormValues,
   useCreateTreeNodeFormValidationSchema,
 } from './validation-schema.ts'
+import { toast } from 'react-toastify'
 
 export type UseCreateTreeNodeFormProps = {
   parentId: number
@@ -38,6 +39,9 @@ export const useCreateTreeNodeForm = ({ onClose, parentId }: UseCreateTreeNodeFo
         .then(() => {
           reset()
           onClose?.()
+        })
+        .catch((err) => {
+          toast.error(err?.data?.data?.message, { autoClose: 3000 })
         })
     })
 

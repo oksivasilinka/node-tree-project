@@ -15,9 +15,9 @@ export const userTreeApi = baseApi.injectEndpoints({
   endpoints: (builder) => {
     return {
       getUserTree: builder.query<GetUserTreeResponse, GetUserTreePayload>({
-        query: ({ treeName }) => ({
+        query: () => ({
           method: 'POST',
-          url: `/api.user.tree.get?treeName=${treeName}`,
+          url: `/api.user.tree.get?treeName=${ROOT_FOLDER}`,
         }),
         providesTags: [PROVIDED_TAGS.tree],
       }),

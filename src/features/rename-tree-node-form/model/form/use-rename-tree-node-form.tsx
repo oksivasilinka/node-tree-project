@@ -8,6 +8,7 @@ import {
   RenameTreeNodeFormValues,
   useRenameTreeNodeFormValidationSchema,
 } from './validation-schema.ts'
+import { toast } from 'react-toastify'
 
 export type UseRenameTreeNodeFormProps = {
   parentId: number
@@ -38,6 +39,9 @@ export const useRenameTreeNodeForm = ({ onClose, parentId }: UseRenameTreeNodeFo
         .then(() => {
           reset()
           onClose?.()
+        })
+        .catch((err) => {
+          toast.error(err?.data?.data?.message, { autoClose: 3000 })
         })
     })
 
